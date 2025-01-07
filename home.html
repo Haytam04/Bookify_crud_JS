@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookify - Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-left">
+            <h1 class="navbar-brand">BOOKIFY</h1>
+        </div>
+        <div class="navbar-right">
+            <a href="home.html" class="nav-link">Home</a>
+            <button id="logoutBtn" class="btn logout-btn">Logout</button>
+        </div>
+    </nav>
+    <div class="books-wrapper">
+        <h1>Welcome to Bookify</h1>
+        <button id="addBookBtn" class="btn primary-btn">Add Book</button>
+
+        <div id="bookForm" class="hidden">
+            <form id="newBookForm" class="new-book-form">
+                <input type="text" id="title" placeholder="Title" required>
+                <input type="text" id="author" placeholder="Author" required>
+                <input type="number" id="year" placeholder="Year" required>
+                <input type="file" id="image" accept="image/*" required>
+                <button type="submit" class="btn primary-btn">Add Book</button>
+            </form>
+        </div>
+
+        <div id="updateForm" class="hidden">
+            <form id="editBookForm">
+                <input type="text" id="editTitle" placeholder="Title" required>
+                <input type="text" id="editAuthor" placeholder="Author" required>
+                <input type="number" id="editYear" placeholder="Year" required>
+                <input type="file" id="editImage" accept="image/*">
+                <button type="submit" class="btn primary-btn">Save Changes</button>
+                <button type="button" id="cancelEditBtn" class="btn secondary-btn">Cancel</button>
+            </form>
+        </div>
+        
+        <div id="bookList" class="book-list"></div>
+    </div>
+    <script>
+        document.getElementById('logoutBtn').addEventListener('click', () => {
+            localStorage.removeItem('loggedInUser');
+            window.location.href = 'index.html';
+        });
+    </script>
+    <script src="script.js" defer></script>
+</body>
+</html>
